@@ -1,0 +1,6 @@
+import React,{useMemo,useState} from "react";
+import {Shell,CropCard} from "../components/Site";
+import {crops} from "../data";
+export default function Marketplace(){const[q,setQ]=useState(""),[cat,setCat]=useState("All"),[cart,setCart]=useState(0);
+const list=useMemo(()=>crops.filter(c=>(cat==="All"||c.category===cat)&&c.name.toLowerCase().includes(q.toLowerCase())),[q,cat]);
+return <Shell><section className="page-hero"><div className="container"><span className="eyebrow">FRESH FROM THE FIELD</span><h1>Marketplace</h1><p>Discover produce from farmer listings.</p></div></section><section className="section pt-4"><div className="container"><div className="filters"><div className="input-group"><span className="input-group-text"><i className="bi bi-search"/></span><input className="form-control" placeholder="Search crops, products..." value={q} onChange={e=>setQ(e.target.value)}/></div><select className="form-select" value={cat} onChange={e=>setCat(e.target.value)}><option>All</option><option>Vegetable</option><option>Cereal</option></select><span className="cart-pill">🛒 {cart} items</span></div><div className="row g-4 mt-2">{list.map(c=><div className="col-6 col-md-4 col-lg-3" key={c.id}><CropCard crop={c} onAdd={()=>setCart(x=>x+1)}/></div>)}</div>{!list.length&&<div className="empty">No matching crops.</div>}</div></section></Shell>}
