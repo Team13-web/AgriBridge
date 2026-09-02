@@ -1,3 +1,59 @@
-import React from "react";
-import {Shell} from "../components/Site";
-export default function About(){return <Shell><section className="page-hero"><div className="container text-center"><span className="eyebrow">ABOUT AGRIBRIDGE</span><h1>Technology with an agricultural heartbeat.</h1><p>We connect the people, products and land that keep agriculture moving.</p></div></section><section className="section"><div className="container"><div className="row align-items-center g-5"><div className="col-lg-6"><div className="about-art"><div className="about-circle">🌱</div><b className="about-badge a">1000+<small>Farmers</small></b><b className="about-badge b">500+<small>Buyers</small></b><b className="about-badge c">300+<small>Landowners</small></b></div></div><div className="col-lg-6"><span className="eyebrow">OUR STORY</span><h2>A simpler digital bridge for agriculture.</h2><p className="lead-muted">Agricultural technology should reduce friction, not add another layer of complexity.</p><p className="lead-muted">Farmers can publish crops and access field tools. Buyers get a direct marketplace. Landowners can publish land and review lease requests. Administrators keep the ecosystem measurable.</p><div className="inline-stats"><span><b>50+</b><small>Fields</small></span><span><b>24/7</b><small>Support model</small></span><span><b>1</b><small>Platform</small></span></div></div></div></div></section></Shell>}
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+export default function About() {
+  return (
+    <div className="about-page py-5">
+      <div className="container">
+        <div className="text-center mx-auto mb-5" style={{ maxWidth: '650px' }}>
+          <span className="eyebrow">OUR MISSION</span>
+          <h1 className="fw-black mb-3">Empowering Agriculture Through Digital Trust</h1>
+          <p className="text-muted leading-relaxed">
+            AgriBridge is built to solve land underutilization and produce market inefficiencies across India by providing transparent leasing and direct produce trading.
+          </p>
+        </div>
+
+        <div className="row g-4 my-5 align-items-center">
+          <div className="col-lg-6">
+            <h3 className="fw-bold mb-3">Why AgriBridge?</h3>
+            <p className="text-muted leading-relaxed mb-4">
+              Farmers often struggle to find fertile land for lease with fair contracts, while landowners face difficulty verifying trustworthy tenants. AgriBridge bridges this gap with Cloud-hosted technology, verified records, and integrated digital payment solutions.
+            </p>
+            <div className="row g-3">
+              <div className="col-6">
+                <div className="border-start border-success border-4 ps-3">
+                  <h4 className="fw-bold text-success mb-1">100%</h4>
+                  <small className="text-muted">Verified Title Deeds</small>
+                </div>
+              </div>
+              <div className="col-6">
+                <div className="border-start border-success border-4 ps-3">
+                  <h4 className="fw-bold text-success mb-1">Zero</h4>
+                  <small className="text-muted">Middleman Exploitation</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-6">
+            <img 
+              src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800" 
+              alt="Farming field" 
+              className="img-fluid rounded-4 shadow-md"
+            />
+          </div>
+        </div>
+
+        <div className="p-5 bg-white border rounded-4 shadow-sm text-center">
+          <h3 className="fw-bold mb-3">Join the Digital Agriculture Movement</h3>
+          <p className="text-muted mb-4 mx-auto" style={{ maxWidth: '500px' }}>
+            Discover land, list property, or buy fresh farm produce online with complete peace of mind.
+          </p>
+          <Link to="/auth?mode=register" className="btn btn-success btn-lg px-4">
+            Get Started with AgriBridge
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,3 +1,98 @@
-import React,{useState} from "react";
-import {Shell} from "../components/Site";
-export default function Contact(){const[sent,setSent]=useState(false);return <Shell><section className="page-hero"><div className="container text-center"><span className="eyebrow">WE ARE HERE TO HELP</span><h1>Contact Us</h1><p>Tell us what you need and our team will get back to you.</p></div></section><section className="section"><div className="container"><div className="row g-5"><div className="col-lg-5"><h2>Let’s talk.</h2><p className="lead-muted">Questions about listings, orders, land leasing or the platform?</p><div className="contact-list"><div>✉️ <span><b>Email</b><small>support@agribridge.com</small></span></div><div>☎️ <span><b>Phone</b><small>+91 63520 43210</small></span></div><div>📍 <span><b>Location</b><small>Andhra Pradesh, India</small></span></div></div></div><div className="col-lg-7"><form className="form-card" onSubmit={e=>{e.preventDefault();setSent(true)}}><div className="row g-3"><div className="col-md-6"><label>Full Name</label><input required className="form-control" placeholder="Your name"/></div><div className="col-md-6"><label>Email</label><input required type="email" className="form-control" placeholder="you@example.com"/></div><div className="col-12"><label>Message</label><textarea required rows="6" className="form-control" placeholder="How can we help?"/></div><div className="col-12"><button className="btn btn-success w-100">Send Message <i className="bi bi-send"/></button></div></div>{sent&&<div className="alert alert-success mt-3 mb-0">Message sent in demo mode.</div>}</form></div></div></div></section></Shell>}
+import React, { useState } from 'react';
+
+export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  return (
+    <div className="contact-page py-5">
+      <div className="container">
+        <div className="text-center mx-auto mb-5" style={{ maxWidth: '600px' }}>
+          <span className="eyebrow">GET IN TOUCH</span>
+          <h1 className="fw-black mb-2">We'd Love to Hear From You</h1>
+          <p className="text-muted">Have questions about land leasing, produce listing, or technical support?</p>
+        </div>
+
+        <div className="row g-5">
+          <div className="col-lg-5">
+            <div className="card border-0 shadow-sm rounded-4 p-4 bg-white">
+              <h5 className="fw-bold mb-4">Contact Information</h5>
+              
+              <div className="d-flex align-items-center gap-3 mb-4">
+                <div className="bg-success-subtle text-success p-3 rounded-circle">
+                  <i className="bi bi-geo-alt-fill fs-4"></i>
+                </div>
+                <div>
+                  <h6 className="fw-bold mb-0">Headquarters</h6>
+                  <small className="text-muted">Ongole & Vijayawada, Andhra Pradesh, India</small>
+                </div>
+              </div>
+
+              <div className="d-flex align-items-center gap-3 mb-4">
+                <div className="bg-success-subtle text-success p-3 rounded-circle">
+                  <i className="bi bi-envelope-fill fs-4"></i>
+                </div>
+                <div>
+                  <h6 className="fw-bold mb-0">Email Support</h6>
+                  <small className="text-muted">support@agribridge.com</small>
+                </div>
+              </div>
+
+              <div className="d-flex align-items-center gap-3">
+                <div className="bg-success-subtle text-success p-3 rounded-circle">
+                  <i className="bi bi-telephone-fill fs-4"></i>
+                </div>
+                <div>
+                  <h6 className="fw-bold mb-0">Toll-Free Helpline</h6>
+                  <small className="text-muted">+91 1800-AGRI-BRIDGE</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-7">
+            <div className="card border-0 shadow-sm rounded-4 p-4 bg-white">
+              <h5 className="fw-bold mb-4">Send Us a Message</h5>
+              
+              {submitted ? (
+                <div className="alert alert-success rounded-4 p-4 my-3 text-center">
+                  <i className="bi bi-check-circle-fill fs-1 text-success d-block mb-2"></i>
+                  <h5 className="fw-bold">Thank You!</h5>
+                  <p className="mb-0">Your message has been sent successfully. Our support team will get back to you within 24 hours.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="row g-3">
+                  <div className="col-md-6">
+                    <label className="form-label fw-bold">Your Name</label>
+                    <input type="text" required className="form-control" placeholder="Ramesh Babu" />
+                  </div>
+                  <div className="col-md-6">
+                    <label className="form-label fw-bold">Email Address</label>
+                    <input type="email" required className="form-control" placeholder="ramesh@gmail.com" />
+                  </div>
+                  <div className="col-12">
+                    <label className="form-label fw-bold">Subject</label>
+                    <input type="text" required className="form-control" placeholder="Lease inquiry / Technical help" />
+                  </div>
+                  <div className="col-12">
+                    <label className="form-label fw-bold">Message</label>
+                    <textarea required className="form-control" rows="4" placeholder="How can we assist you?"></textarea>
+                  </div>
+                  <div className="col-12">
+                    <button type="submit" className="btn btn-success btn-lg px-4">
+                      Submit Message
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

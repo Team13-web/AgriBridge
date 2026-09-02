@@ -1,0 +1,27 @@
+:root {
+  --primary: #2E7D32;
+  --primary-dark: #1B5E20;
+  --primary-light: #E8F5E9;
+  --accent: #F9A825;
+  --background: #F7F9F7;
+  --surface: #FFFFFF;
+  --text: #172018;
+  --muted: #68736A;
+  --border: #E1E7E2;
+  --success: #2E7D32;
+  --warning: #F9A825;
+  --danger: #D32F2F;
+  --info: #1976D2;
+  
+  --shadow-sm: 0 2px 8px rgba(23, 32, 24, 0.04);
+  --shadow-md: 0 8px 24px rgba(46, 125, 50, 0.08);
+  --shadow-lg: 0 16px 40px rgba(27, 94, 32, 0.12);
+  
+  --radius-sm: 8px;
+  --radius-btn: 12px;
+  --radius-card: 16px;
+  --radius-container: 20px;
+  
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Poppins', 'Inter', system-ui, sans-serif;
+}
